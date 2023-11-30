@@ -73,6 +73,8 @@ SELECT * FROM materia_prima;
 SELECT * FROM compra;
 SELECT * FROM detalle_compra;
 
+SELECT * FROM usuario WHERE nombre LIKE '%JUAN%' OR apellido_paterno LIKE '%JUAN%' OR apellido_materno LIKE '%JUAN%' OR domicilio LIKE '%JUAN%';
+
 -- ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'CITLALLI123';
 
 

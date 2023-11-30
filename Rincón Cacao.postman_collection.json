@@ -7,534 +7,800 @@
 	},
 	"item": [
 		{
-			"name": "insertarUsuario",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"nombre\": \"CITLALLI\",\r\n    \"apellido_paterno\": \"MARTINEZ\",\r\n    \"apellido_materno\": \"MEDINA\",\r\n    \"domicilio\": \"CASA\",\r\n    \"fecha_nacimiento\": \"2002-06-24\",\r\n    \"telefono\": \"4772337489\",\r\n    \"email\": \"citla@gmail.com\",\r\n    \"contrasennia\": \"123\",\r\n    \"rfc\": \"MAMJ020624HB1\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "insertar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"CITLALLI\",\r\n    \"apellido_paterno\": \"MARTINEZ\",\r\n    \"apellido_materno\": \"MEDINA\",\r\n    \"domicilio\": \"CASA\",\r\n    \"fecha_nacimiento\": \"2002-06-24\",\r\n    \"telefono\": \"4772337489\",\r\n    \"email\": \"citla@gmail.com\",\r\n    \"contrasennia\": \"123\",\r\n    \"rfc\": \"MAMJ020624HB1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/usuarios/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"usuarios",
+								"create"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:3001/usuarios/create",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"usuarios",
-						"create"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "verUsuarios",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3001/usuarios",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"usuarios"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "editarUsuario",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"1\",\r\n    \"nombre\": \"JUAN\",\r\n    \"apellido_paterno\": \"MARTINEZ\",\r\n    \"apellido_materno\": \"MEDINA\",\r\n    \"domicilio\": \"CASA\",\r\n    \"fecha_nacimiento\": \"2002-06-24\",\r\n    \"telefono\": \"4772337489\",\r\n    \"email\": \"citla@gmail.com\",\r\n    \"contrasennia\": \"123\",\r\n    \"rfc\": \"MAMJ020624HB1\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"usuarios"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:3001/usuarios/edit",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"usuarios",
-						"edit"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "eliminarUsuario",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"1\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "editar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"1\",\r\n    \"nombre\": \"JUAN\",\r\n    \"apellido_paterno\": \"MARTINEZ\",\r\n    \"apellido_materno\": \"MEDINA\",\r\n    \"domicilio\": \"CASA\",\r\n    \"fecha_nacimiento\": \"2002-06-24\",\r\n    \"telefono\": \"4772337489\",\r\n    \"email\": \"citla@gmail.com\",\r\n    \"contrasennia\": \"123\",\r\n    \"rfc\": \"MAMJ020624HB1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/usuarios/edit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"usuarios",
+								"edit"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:3001/usuarios/delete",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"usuarios",
-						"delete"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "insertarProveedor",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"nombre\": \"CITLALLI\",\r\n    \"apellido_paterno\": \"MARTINEZ\",\r\n    \"apellido_materno\": \"MEDINA\",\r\n    \"direccion\": \"CASA\",\r\n    \"empresa\": \"UTL\",\r\n    \"telefono\": \"4772337489\",\r\n    \"email\": \"citla@gmail.com\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "eliminar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/usuarios/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"usuarios",
+								"delete"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:3001/proveedores/create",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"proveedores",
-						"create"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "verProveedores",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3001/proveedores",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"proveedores"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "editarProveedor",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"1\",\r\n    \"nombre\": \"JUAN\",\r\n    \"apellido_paterno\": \"MARTINEZ\",\r\n    \"apellido_materno\": \"MEDINA\",\r\n    \"direccion\": \"CASA\",\r\n    \"empresa\": \"UST\",\r\n    \"telefono\": \"4772337489\",\r\n    \"email\": \"citla@gmail.com\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "buscar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/usuario/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"usuario",
+								"1"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:3001/proveedores/edit",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"proveedores",
-						"edit"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "eliminarProveedor",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"1\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "filtrar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/usuarios/search?filter=JUAN",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"usuarios",
+								"search"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "JUAN"
+								}
+							]
 						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3001/proveedores/delete",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"proveedores",
-						"delete"
-					]
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "insertarMateria",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id_proveedor\": \"1\",\r\n    \"nombre\": \"CHOCOLATE\",\r\n    \"descripcion\": \"CHOCOLATE OSCURO\",\r\n    \"duracion\": \"15\",\r\n    \"stock\": \"10\",\r\n    \"cantidad_minima\": \"2\",\r\n    \"medida\": \"1\",\r\n    \"precio\": \"10.50\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Proveedores",
+			"item": [
+				{
+					"name": "insertar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"CITLALLI\",\r\n    \"apellido_paterno\": \"MARTINEZ\",\r\n    \"apellido_materno\": \"MEDINA\",\r\n    \"direccion\": \"CASA\",\r\n    \"empresa\": \"UTL\",\r\n    \"telefono\": \"4772337489\",\r\n    \"email\": \"citla@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/proveedores/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proveedores",
+								"create"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:3001/materias/create",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"materias",
-						"create"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "verMaterias",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3001/materias",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"materias"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "editarMateria",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"1\",\r\n    \"id_proveedor\": \"1\",\r\n    \"nombre\": \"CHOCOLATE\",\r\n    \"descripcion\": \"CHOCOLATE BLANCO\",\r\n    \"duracion\": \"15\",\r\n    \"stock\": \"10\",\r\n    \"cantidad_minima\": \"2\",\r\n    \"medida\": \"1\",\r\n    \"precio\": \"60.50\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/proveedores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proveedores"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:3001/materias/edit",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"materias",
-						"edit"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "eliminarMateria",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"1\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "editar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"1\",\r\n    \"nombre\": \"JUAN\",\r\n    \"apellido_paterno\": \"MARTINEZ\",\r\n    \"apellido_materno\": \"MEDINA\",\r\n    \"direccion\": \"CASA\",\r\n    \"empresa\": \"UST\",\r\n    \"telefono\": \"4772337489\",\r\n    \"email\": \"citla@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/proveedores/edit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proveedores",
+								"edit"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:3001/materias/delete",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"materias",
-						"delete"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "insertarCompra",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id_usuario\": \"1\",\r\n    \"total\": \"121.0\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "eliminar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/proveedores/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proveedores",
+								"delete"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:3001/compras/create",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"compras",
-						"create"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "verCompras",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3001/compras",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"compras"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "editarCompra",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"1\",\r\n    \"fecha\": \"2023-10-29 16:10:04\",\r\n    \"id_usuario\": \"1\",\r\n    \"total\": \"121.0\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "buscar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/proveedor/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proveedor",
+								"1"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:3001/compras/edit",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"compras",
-						"edit"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "eliminarCompra",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"1\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "filtrar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/proveedores/search?filter=JUAN",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"proveedores",
+								"search"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "JUAN"
+								}
+							]
 						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3001/compras/delete",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"compras",
-						"delete"
-					]
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "insertarDetalle",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id_compra\": \"1\",\r\n    \"id_materia_prima\": \"1\",\r\n    \"id_proveedor\": \"1\",\r\n    \"medida\": \"1\",\r\n    \"cantidad\": \"2\",\r\n    \"subtotal\": \"121.0\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Materias",
+			"item": [
+				{
+					"name": "insertar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_proveedor\": \"1\",\r\n    \"nombre\": \"CHOCOLATE\",\r\n    \"descripcion\": \"CHOCOLATE OSCURO\",\r\n    \"duracion\": \"15\",\r\n    \"stock\": \"10\",\r\n    \"cantidad_minima\": \"2\",\r\n    \"medida\": \"1\",\r\n    \"precio\": \"10.50\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/materias/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"materias",
+								"create"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:3001/detalles/create",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"detalles",
-						"create"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "verDetalles",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3001/detalles",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"detalles"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "editarDetalles",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id\": 1,\r\n    \"id_compra\": 1,\r\n    \"id_materia_prima\": 1,\r\n    \"id_proveedor\": 1,\r\n    \"medida\": 2,\r\n    \"cantidad\": 2,\r\n    \"subtotal\": 121\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/materias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"materias"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:3001/detalles/edit",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"detalles",
-						"edit"
-					]
+				{
+					"name": "editar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"1\",\r\n    \"id_proveedor\": \"1\",\r\n    \"nombre\": \"CHOCOLATE\",\r\n    \"descripcion\": \"CHOCOLATE BLANCO\",\r\n    \"duracion\": \"15\",\r\n    \"stock\": \"10\",\r\n    \"cantidad_minima\": \"2\",\r\n    \"medida\": \"1\",\r\n    \"precio\": \"60.50\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/materias/edit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"materias",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/materias/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"materias",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/materia/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"materia",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "filtrar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/materias/search?filter=CHOCOLATE",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"materias",
+								"search"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "CHOCOLATE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscarProveedor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/materias/proveedor/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"materias",
+								"proveedor",
+								"1"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "eliminarDetalles",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"1\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Compras",
+			"item": [
+				{
+					"name": "insertar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_usuario\": \"1\",\r\n    \"total\": \"121.0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/compras/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"compras",
+								"create"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:3001/detalles/delete",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"detalles",
-						"delete"
-					]
+				{
+					"name": "listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/compras",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"compras"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"1\",\r\n    \"fecha\": \"2023-10-29 16:10:04\",\r\n    \"id_usuario\": \"1\",\r\n    \"total\": \"121.0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/compras/edit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"compras",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/compras/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"compras",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/compra/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"compra",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscarUsuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/compras/usuario/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"compras",
+								"usuario",
+								"1"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "Detalles",
+			"item": [
+				{
+					"name": "insertar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_compra\": \"1\",\r\n    \"id_materia_prima\": \"1\",\r\n    \"id_proveedor\": \"1\",\r\n    \"medida\": \"1\",\r\n    \"cantidad\": \"2\",\r\n    \"subtotal\": \"121.0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/detalles/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"detalles",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/detalles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"detalles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"id_compra\": 1,\r\n    \"id_materia_prima\": 1,\r\n    \"id_proveedor\": 1,\r\n    \"medida\": 2,\r\n    \"cantidad\": 2,\r\n    \"subtotal\": 121\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/detalles/edit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"detalles",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/detalles/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"detalles",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/detalle/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"detalle",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscarCompra",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/detalles/compra/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"detalles",
+								"compra",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

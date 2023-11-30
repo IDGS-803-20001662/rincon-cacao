@@ -105,6 +105,72 @@ app.put("/usuarios/delete", (req, res) => {
     });
 });
 
+// BUSCAR USUARIO POR ID
+app.get("/usuario/:id", (req, res) => {
+    const id = req.params.id;
+
+    db.query('SELECT * FROM usuario WHERE id = ? ',
+    [id],
+    (err, result) => {
+        if (err)
+        {
+            console.log(err);
+            req.status(500).send("Error al buscar el usuario")
+        }
+        else
+        {
+            if (result.length > 0)
+            {
+                res.send(result);
+            }
+            else
+            {
+                res.status(404).send("Usuario no encontrado")
+            }
+        }
+    });
+});
+
+// BUSCAR USUARIOS
+app.get("/usuarios/search", (req, res) => {
+    const filter = req.query.filter;
+
+    if (!filter)
+    {
+        return res.status(400).send("Favor de proporcionar un parámetro de búsqueda")
+    }
+
+    const searchQuery = `SELECT * FROM usuario 
+                        WHERE nombre LIKE ? 
+                        OR apellido_paterno LIKE ? 
+                        OR apellido_materno LIKE ? 
+                        OR domicilio LIKE ? 
+                        OR email LIKE ? 
+                        OR rfc LIKE ?`;
+
+    const searchTerm = `%${filter}%`;
+
+    db.query(
+        searchQuery,
+        [searchTerm, searchTerm, searchTerm, searchTerm, searchTerm, searchTerm],
+        (err, result) => {
+            if (err) {
+                console.log(err);
+                res.status(500).send("Error al procesar la búsqueda");
+            } else {
+                if (result.length > 0)
+                {
+                    res.send(result);
+                }
+                else
+                {
+                    res.status(404).send("Ningun usuario coincide con la búsqueda")
+                }
+            }
+        }
+    );
+});
+
 
 // ----------------------------------------------------------------------------
 
@@ -190,6 +256,72 @@ app.put("/proveedores/delete", (req, res) => {
             res.send("¡Proveedor eliminado con éxito!");
         }
     });
+});
+
+// BUSCAR PROVEEDOR POR ID
+app.get("/proveedor/:id", (req, res) => {
+    const id = req.params.id;
+
+    db.query('SELECT * FROM proveedor WHERE id = ? ',
+    [id],
+    (err, result) => {
+        if (err)
+        {
+            console.log(err);
+            req.status(500).send("Error al buscar el proveedor")
+        }
+        else
+        {
+            if (result.length > 0)
+            {
+                res.send(result);
+            }
+            else
+            {
+                res.status(404).send("Proveedor no encontrado")
+            }
+        }
+    });
+});
+
+// BUSCAR PROVEEDORES
+app.get("/proveedores/search", (req, res) => {
+    const filter = req.query.filter;
+
+    if (!filter)
+    {
+        return res.status(400).send("Favor de proporcionar un parámetro de búsqueda")
+    }
+
+    const searchQuery = `SELECT * FROM proveedor
+                        WHERE nombre LIKE ? 
+                        OR apellido_paterno LIKE ? 
+                        OR apellido_materno LIKE ? 
+                        OR direccion LIKE ? 
+                        OR email LIKE ? 
+                        OR empresa LIKE ?`;
+
+    const searchTerm = `%${filter}%`;
+
+    db.query(
+        searchQuery,
+        [searchTerm, searchTerm, searchTerm, searchTerm, searchTerm, searchTerm],
+        (err, result) => {
+            if (err) {
+                console.log(err);
+                res.status(500).send("Error al procesar la búsqueda");
+            } else {
+                if (result.length > 0)
+                {
+                    res.send(result);
+                }
+                else
+                {
+                    res.status(404).send("Ningun proveedor coincide con la búsqueda")
+                }
+            }
+        }
+    );
 });
 
 
@@ -280,6 +412,96 @@ app.put("/materias/delete", (req, res) => {
     });
 });
 
+// BUSCAR MATERIAS POR ID
+app.get("/materia/:id", (req, res) => {
+    const id = req.params.id;
+
+    db.query('SELECT * FROM materia_prima WHERE id = ? ',
+    [id],
+    (err, result) => {
+        if (err)
+        {
+            console.log(err);
+            req.status(500).send("Error al buscar la materia prima")
+        }
+        else
+        {
+            if (result.length > 0)
+            {
+                res.send(result);
+            }
+            else
+            {
+                res.status(404).send("Materia prima no encontrada")
+            }
+        }
+    });
+});
+
+// BUSCAR MATERIAS
+app.get("/materias/search", (req, res) => {
+    const filter = req.query.filter;
+
+    if (!filter)
+    {
+        return res.status(400).send("Favor de proporcionar un parámetro de búsqueda")
+    }
+
+    const searchQuery = `SELECT * FROM materia_prima
+                        WHERE nombre LIKE ? 
+                        OR descripcion LIKE ? 
+                        OR medida LIKE ? 
+                        OR precio LIKE ?`;
+
+    const searchTerm = `%${filter}%`;
+
+    db.query(
+        searchQuery,
+        [searchTerm, searchTerm, searchTerm, searchTerm],
+        (err, result) => {
+            if (err) {
+                console.log(err);
+                res.status(500).send("Error al procesar la búsqueda");
+            } else {
+                if (result.length > 0)
+                {
+                    res.send(result);
+                }
+                else
+                {
+                    res.status(404).send("Ninguna materia prima coincide con la búsqueda")
+                }
+            }
+        }
+    );
+});
+
+// BUSCAR MATERIAS POR PROVEEDOR
+app.get("/materias/proveedor/:id", (req, res) => {
+    const id = req.params.id;
+
+    db.query('SELECT * FROM materia_prima WHERE id_proveedor = ? ',
+    [id],
+    (err, result) => {
+        if (err)
+        {
+            console.log(err);
+            req.status(500).send("Error al buscar la materia prima")
+        }
+        else
+        {
+            if (result.length > 0)
+            {
+                res.send(result);
+            }
+            else
+            {
+                res.status(404).send("Materias primas no encontrada")
+            }
+        }
+    });
+});
+
 // ---------------------------------------------------------------------------
 
 // GUARDAR COMPRA
@@ -361,6 +583,57 @@ app.put("/compras/delete", (req, res) => {
     });
 });
 
+// BUSCAR COMPRAS POR ID
+app.get("/compra/:id", (req, res) => {
+    const id = req.params.id;
+
+    db.query('SELECT * FROM compra WHERE id = ? ',
+    [id],
+    (err, result) => {
+        if (err)
+        {
+            console.log(err);
+            req.status(500).send("Error al buscar la compra")
+        }
+        else
+        {
+            if (result.length > 0)
+            {
+                res.send(result);
+            }
+            else
+            {
+                res.status(404).send("Compra no encontrada")
+            }
+        }
+    });
+});
+
+// BUSCAR COMPRAS POR EMPLEADO
+app.get("/compras/usuario/:id", (req, res) => {
+    const id = req.params.id;
+
+    db.query('SELECT * FROM compra WHERE id_usuario = ? ',
+    [id],
+    (err, result) => {
+        if (err)
+        {
+            console.log(err);
+            req.status(500).send("Error al buscar las compras")
+        }
+        else
+        {
+            if (result.length > 0)
+            {
+                res.send(result);
+            }
+            else
+            {
+                res.status(404).send("Compras no encontradas")
+            }
+        }
+    });
+});
 
 // ------------------------------------------------------------------------------------
 
@@ -442,6 +715,58 @@ app.delete("/detalles/delete", (req, res) => {
         else
         {
             res.send("¡Detalle de compra eliminado con éxito!");
+        }
+    });
+});
+
+// BUSCAR DETALLES POR ID
+app.get("/detalle/:id", (req, res) => {
+    const id = req.params.id;
+
+    db.query('SELECT * FROM detalle_compra WHERE id = ? ',
+    [id],
+    (err, result) => {
+        if (err)
+        {
+            console.log(err);
+            req.status(500).send("Error al buscar el detalle de compra")
+        }
+        else
+        {
+            if (result.length > 0)
+            {
+                res.send(result);
+            }
+            else
+            {
+                res.status(404).send("Detalle de compra no encontrado")
+            }
+        }
+    });
+});
+
+// BUSCAR DETALLES POR COMPRA
+app.get("/detalles/compra/:id", (req, res) => {
+    const id = req.params.id;
+
+    db.query('SELECT * FROM detalle_compra WHERE id_compra = ? ',
+    [id],
+    (err, result) => {
+        if (err)
+        {
+            console.log(err);
+            req.status(500).send("Error al buscar los detalles por compra")
+        }
+        else
+        {
+            if (result.length > 0)
+            {
+                res.send(result);
+            }
+            else
+            {
+                res.status(404).send("Detalles no encontrados")
+            }
         }
     });
 });
