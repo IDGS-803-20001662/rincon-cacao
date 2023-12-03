@@ -1,7 +1,8 @@
-import React, { useCallback ,useState} from 'react'
+import { useCallback ,useEffect,useState} from 'react'
 
 const Usuario = () => {
     const [data, setData] = useState([])
+    const [searchTerm, setSearchTerm] = useState('');
 
     const getUsuarios = useCallback(async () => {
         const response = await fetch('http://localhost:3001/usuarios')
@@ -10,7 +11,7 @@ const Usuario = () => {
     }
     , [])
 
-    React.useEffect(() => {
+    useEffect(() => {
         getUsuarios()
     }, [getUsuarios, data])
 
@@ -22,8 +23,37 @@ const Usuario = () => {
     const handleFormSubmit = (e) => {
         e.preventDefault();
         // Agrega la lógica para manejar el envío del formulario aquí
+        //imprimir los datos del formulario del onsubmit formatearlos a json
+        let data = {
+            nombre: e.target.nombre.value,
+            apellido_paterno: e.target.apellido_paterno.value,
+            apellido_materno: e.target.apellido_materno.value,
+            domicilio: e.target.domicilio.value,
+            telefono: e.target.telefono.value,
+            email: e.target.email.value,
+            rfc: e.target.rfc.value,
+            contrasennia: e.target.contrasennia.value,
+            fecha_nacimiento: e.target.fecha_nacimiento.value
+        }
+        console.log(data);
+        guardarUsuario(data);
+        
+
         handleClose(); // Cierra el modal después de enviar el formulario
     };
+
+    //function guardar usuario
+    const guardarUsuario = async (data) => {
+        const response = await fetch('http://localhost:3001/usuarios/create', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        const res = await response.text()
+        console.log(res)
+    }
 
     const [showModalEdit, setShowModalEdit] = useState(false);
     const [dataEdit, setDataEdit] = useState([]);
@@ -49,9 +79,36 @@ const Usuario = () => {
         e.preventDefault();
         //imprimir los datos del formulario del onsubmit
         console.log(e.target.nombre.value);
+        editarUsuario(dataEdit);
 
         // Agrega la lógica para manejar el envío del formulario aquí
         handleCloseEdit(); // Cierra el modal después de enviar el formulario
+    }
+
+    //function editar usuario
+    const editarUsuario = async (data) => {
+        await fetch('http://localhost:3001/usuarios/edit', {
+            method: 'PUT',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then(res => res.text())
+        .then(data => console.log(data))
+        .catch(err => console.log(err))
+    }
+
+    //function eliminar usuario
+    const handleDelete = async (id) => {
+        await fetch('http://localhost:3001/usuarios/delete', {
+            method: 'PUT',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({id:id})
+        }).then(res => res.text())
+        .then(data => console.log(data))
+        .catch(err => console.log(err))
     }
 
   return (
@@ -64,9 +121,19 @@ const Usuario = () => {
                 Abrir Modal
             </button>
     </div>
+    <div className='d-flex justify-content-between align-items-center col-5'>
+        <h6 className=''>Buscar</h6>
+        <input
+            className='form-control'
+              type='text'
+              placeholder='Buscar'
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+    </div>
     {showModal && ( <ModalAdd handleClose={handleClose} handleFormSubmit={handleFormSubmit}/>)}
     {showModalEdit && ( <ModalEdit handleClose={handleCloseEdit} handleFormSubmit={handleFormSubmitEdit} dataEdit={dataEdit} handleInputEditarChange={handleInputEditarChange}/>)}
-    <Tabla data={data} handleModalEdit={handleShowModalEdit}/>
+    <Tabla data={data} handleModalEdit={handleShowModalEdit} searchTerm={searchTerm} handleDelete={handleDelete}/>
     </div>
     </div>
     </>
@@ -76,20 +143,26 @@ const Usuario = () => {
 export default Usuario
 
 
-function Tabla({data,handleModalEdit}){
-    /*
-    "id": 1,
-    "nombre": "CITLALLI",
-        "apellido_paterno": "MARTINEZ",
-        "apellido_materno": "MEDINA",
-        "domicilio": "CASA",
-        "fecha_nacimiento": "2002-06-24",
-        "telefono": "4772337489",
-        "email": "citla@gmail.com",
-        "contrasennia": "123",
-        "rfc": "MAMJ020624HB1",
-        "create_date": "2023-11-29T20:33:42.000Z",
-    */
+function Tabla({data,handleModalEdit,searchTerm,handleDelete}){
+        const [filteredData, setFilteredData] = useState([]);
+
+        useEffect(() => {
+            const obtenerData = async () => {
+              if (searchTerm.trim() !== '') {
+                return data.filter(
+                  (usuario) =>
+                    usuario.nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    usuario.apellido_paterno.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    usuario.apellido_materno.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    usuario.email.toLowerCase().includes(searchTerm.toLowerCase())
+                );
+              } else {
+                return data;
+              }
+            };
+            obtenerData().then((filtered) => setFilteredData(filtered));
+          }, [data, searchTerm]);
+
     return(
         <div className="table-responsive">
             <table className="table table-striped table-bordered">
@@ -106,7 +179,7 @@ function Tabla({data,handleModalEdit}){
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map((usuario) => (
+                    {filteredData.map((usuario) => (
                         <tr key={usuario.id}>
                             <td>{usuario.nombre}</td>
                             <td>{usuario.apellido_paterno}</td>
@@ -119,7 +192,7 @@ function Tabla({data,handleModalEdit}){
                                 <button type="button" className="btn btn-warning" onClick={()=>handleModalEdit(usuario)}>
                                     Editar
                                 </button>
-                                <button type="button" className="btn btn-danger">
+                                <button type="button" className="btn btn-danger" onClick={()=>handleDelete(usuario.id)}>
                                     Eliminar
                                 </button>
                             </td>
@@ -158,6 +231,14 @@ function ModalAdd({handleClose,handleFormSubmit}){
                                     <div className="mb-3">
                                         <label htmlFor="domicilio" className="form-label">Domicilio</label>
                                         <input type="text" className="form-control" id="domicilio" name="domicilio" required />
+                                    </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="fecha_nacimiento" className="form-label">Fecha de Nacimiento</label>
+                                        <input type="date" className="form-control" id="fecha_nacimiento" name="fecha_nacimiento" required />
+                                    </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="contrasennia" className="form-label">Contraseña</label>
+                                        <input type="password" className="form-control" id="contrasennia" name="contrasennia" required />
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="telefono" className="form-label">Teléfono</label>
@@ -212,6 +293,15 @@ function ModalEdit({handleClose,handleFormSubmit,dataEdit,handleInputEditarChang
                                         <input type="text" className="form-control" id="apellido_materno" name="apellido_materno" value={dataEdit.apellido_materno} onChange={handleInputEditarChange} required />
                                     </div>
                                     <div className="mb-3">
+                                        <label htmlFor="fecha_nacimiento" className="form-label">Fecha de Nacimiento</label>
+                                        <input type="date" className="form-control" id="fecha_nacimiento" name="fecha_nacimiento" value={dataEdit.fecha_nacimiento} onChange={handleInputEditarChange} required />
+                                    </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="contrasennia" className="form-label">Contraseña</label>
+                                        <input type="text" className="form-control" id="contrasennia" name="contrasennia" value={dataEdit.contrasennia} onChange={handleInputEditarChange} required />
+                                    </div>
+
+                                    <div className="mb-3">
                                         <label htmlFor="domicilio" className="form-label">Domicilio</label>
                                         <input type="text" className="form-control" id="domicilio" name="domicilio" value={dataEdit.domicilio} onChange={handleInputEditarChange} required />
                                     </div>
@@ -227,6 +317,9 @@ function ModalEdit({handleClose,handleFormSubmit,dataEdit,handleInputEditarChang
                                         <label htmlFor="rfc" className="form-label">RFC</label>
                                         <input type="text" className="form-control" id="rfc" name="rfc" value={dataEdit.rfc} onChange={handleInputEditarChange} required />
                                     </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="estatus" className="form-label">estatus {dataEdit.estatus}</label>
+                                        </div>
                                     {/* Otros campos del formulario... */}
                                     <button type="submit" className="btn btn-primary">
                                         Editar Usuario
