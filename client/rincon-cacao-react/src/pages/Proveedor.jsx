@@ -149,12 +149,12 @@ function Tabla({data,handleModalEdit,searchTerm,handleDelete}){
           const obtenerData = async () => {
             if (searchTerm.trim() !== '') {
               return data.filter(
-                (usuario) =>
-                  usuario.nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                  usuario.apellido_paterno.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                  usuario.apellido_materno.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                  usuario.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                  usuario.empresa.toLowerCase().includes(searchTerm.toLowerCase())
+                (proveedor) =>
+                proveedor.nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                proveedor.apellido_paterno.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                proveedor.apellido_materno.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                proveedor.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                proveedor.empresa.toLowerCase().includes(searchTerm.toLowerCase())
               );
             } else {
               return data;

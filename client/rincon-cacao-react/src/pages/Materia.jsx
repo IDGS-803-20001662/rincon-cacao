@@ -189,9 +189,9 @@ function Tabla({data,handleModalEdit,searchTerm, dataProveedor,dataMedida,handle
           const obtenerData = async () => {
             if (searchTerm.trim() !== '') {
               return data.filter(
-                (usuario) =>
-                  usuario.nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                  usuario.descripcion.toLowerCase().includes(searchTerm.toLowerCase())
+                (materia) =>
+                materia.nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                materia.descripcion.toLowerCase().includes(searchTerm.toLowerCase())
               );
             } else {
               return data;

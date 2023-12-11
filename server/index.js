@@ -522,7 +522,9 @@ app.post("/compras/create", (req, res) => {
         }
         else
         {
-            res.send("¡Compra registrada con éxito!");
+            //devolver el id de la compra
+            res.send(result.insertId.toString());
+            //res.send("¡Compra registrada con éxito!");
         }
     });
 });
@@ -530,7 +532,7 @@ app.post("/compras/create", (req, res) => {
 // LISTAR COMPRAS
 app.get("/compras", (req, res) => {
 
-    db.query('SELECT * FROM compra',
+    db.query('SELECT * FROM compra where estatus = 1',
     (err, result) => {
         if (err)
         {
