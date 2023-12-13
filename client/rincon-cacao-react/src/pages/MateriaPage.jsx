@@ -1,10 +1,10 @@
 import { useState, useEffect, useCallback } from 'react'
-import Navbar from '../Components/Navbar';
+import Navbar from '../components/Navbar';
 import { FaPlus } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
-import ModalAddMateria from '../Components/ModalAddMateria';
-import ModalEditMateria from '../Components/ModalEditMateria';
-import TablaMateria from '../Components/TablaMateria';
+import ModalAddMateria from '../components/ModalAddMateria';
+import ModalEditMateria from '../components/ModalEditMateria';
+import TablaMateria from '../components/TablaMateria';
 
 const MateriaPage = () => {
   const [data, setData] = useState([])
@@ -167,7 +167,6 @@ const MateriaPage = () => {
 
   return (
     <>
-    <Navbar/>
         <div className='col-md-11 mx-auto'>
             <div className='d-flex justify-content-between align-items-center'>
                 <h6 className='text-start fw-bold fs-1 text-primary mt-3 mb-4'>Materias Primas</h6>

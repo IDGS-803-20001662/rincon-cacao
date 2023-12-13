@@ -1,11 +1,11 @@
 import { useState, useEffect, useCallback } from 'react'
-import Navbar from '../Components/Navbar';
+import Navbar from '../components/Navbar';
 import { FaPlus } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
-import ModalAddCompra from '../Components/ModalAddCompra';
-import ModalDetalle from '../Components/ModalDetalle';
-import ModalDetalleCompraId from '../Components/ModalDetalleCompraId';
-import TablaCompra from '../Components/TablaCompra';
+import ModalAddCompra from '../components/ModalAddCompra';
+import ModalDetalle from '../components/ModalDetalle';
+import ModalDetalleCompraId from '../components/ModalDetalleCompraId';
+import TablaCompra from '../components/TablaCompra';
 
 const dataMedida = [
   {
@@ -269,7 +269,6 @@ const CompraPage = () => {
 
   return (
     <>
-      <Navbar/>
       <div className='col-md-11 mx-auto'>
         <div className='d-flex justify-content-between align-items-center'>
           <h6 className='text-start fw-bold fs-1 text-primary mt-3 mb-4' id='titleCompra'>Compra</h6>

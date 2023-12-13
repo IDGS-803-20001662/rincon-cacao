@@ -1,10 +1,10 @@
 import { useState, useEffect, useCallback } from 'react'
-import Navbar from '../Components/Navbar';
+import Navbar from '../components/Navbar';
 import { FaPlus } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
-import ModalAddProveedor from '../Components/ModalAddProveedor';
-import ModalEditProveedor from '../Components/ModalEditProveedor';
-import TablaProveedor from '../Components/TablaProveedor';
+import ModalAddProveedor from '../components/ModalAddProveedor';
+import ModalEditProveedor from '../components/ModalEditProveedor';
+import TablaProveedor from '../components/TablaProveedor';
 
 const ProveedorPage = () => {
   const [data, setData] = useState([])
@@ -123,7 +123,6 @@ const ProveedorPage = () => {
 
   return (
     <>
-    <Navbar/>
         <div className='col-md-11 mx-auto'>
             <div className='d-flex justify-content-between align-items-center'>
                 <h6 className='text-start fw-bold fs-1 text-primary mt-3 mb-4' id='titleProveedor'>Proveedor</h6>

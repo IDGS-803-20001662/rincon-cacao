@@ -1,8 +1,8 @@
 import { useCallback ,useEffect,useState} from 'react'
-import Navbar from '../Components/Navbar';
-import ModalAddUser from '../Components/ModalAddUser';
-import ModalEditUser from '../Components/ModalEditUser';
-import TablaUser from '../Components/TablaUser';
+import Navbar from '../components/Navbar';
+import ModalAddUser from '../components/ModalAddUser';
+import ModalEditUser from '../components/ModalEditUser';
+import TablaUser from '../components/TablaUser';
 import { FaPlus } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
 
@@ -122,7 +122,6 @@ const UsuarioPage = () => {
 
   return (
     <>
-        <Navbar/>
         <div className='col-md-11 mx-auto'>
             <div className='d-flex justify-content-between align-items-center'>
                 <h6 className='text-start fw-bold fs-1 text-primary mt-3 mb-4' id='titleUsuario'>Usuario</h6>
