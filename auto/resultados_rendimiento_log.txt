@@ -1,3 +1,192 @@
 2023-12-13 11:24:05,483 - ERROR: Error en la prueba de listar: module 'selenium.webdriver.support.expected_conditions' has no attribute 'presence_of_elements_located'
 2023-12-13 11:24:05,483 - INFO: La pagina completo la prueba de rendimiento con una carga del sitio en 1.0629734992980957 segundos.
 2023-12-13 11:24:36,300 - INFO: La pagina completo la prueba de rendimiento con una carga del sitio en 1.1209402084350586 segundos.
+2023-12-13 11:57:23,839 - ERROR: La prueba de rendimiento falló: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=120.0.6099.71)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7F3364D02+56194]
+	(No symbol) [0x00007FF7F32D04B2]
+	(No symbol) [0x00007FF7F31776AA]
+	(No symbol) [0x00007FF7F316FB39]
+	(No symbol) [0x00007FF7F31625DD]
+	(No symbol) [0x00007FF7F31616FD]
+	(No symbol) [0x00007FF7F3160746]
+	(No symbol) [0x00007FF7F31606EB]
+	(No symbol) [0x00007FF7F315EE3D]
+	(No symbol) [0x00007FF7F315F603]
+	(No symbol) [0x00007FF7F317A0FD]
+	(No symbol) [0x00007FF7F3202C91]
+	(No symbol) [0x00007FF7F31E5E7A]
+	(No symbol) [0x00007FF7F3202786]
+	(No symbol) [0x00007FF7F31E5C23]
+	(No symbol) [0x00007FF7F31B4A45]
+	(No symbol) [0x00007FF7F31B5AD4]
+	GetHandleVerifier [0x00007FF7F36DD5BB+3695675]
+	GetHandleVerifier [0x00007FF7F3736197+4059159]
+	GetHandleVerifier [0x00007FF7F372DF63+4025827]
+	GetHandleVerifier [0x00007FF7F33FF029+687785]
+	(No symbol) [0x00007FF7F32DB508]
+	(No symbol) [0x00007FF7F32D7564]
+	(No symbol) [0x00007FF7F32D76E9]
+	(No symbol) [0x00007FF7F32C8094]
+	BaseThreadInitThunk [0x00007FF853FB7344+20]
+	RtlUserThreadStart [0x00007FF854A026B1+33]
+
+2023-12-13 11:57:34,888 - ERROR: Error en la prueba de login: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.71)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7F3364D02+56194]
+	(No symbol) [0x00007FF7F32D04B2]
+	(No symbol) [0x00007FF7F31776AA]
+	(No symbol) [0x00007FF7F3150AFD]
+	(No symbol) [0x00007FF7F31EC9AB]
+	(No symbol) [0x00007FF7F320201F]
+	(No symbol) [0x00007FF7F31E5C23]
+	(No symbol) [0x00007FF7F31B4A45]
+	(No symbol) [0x00007FF7F31B5AD4]
+	GetHandleVerifier [0x00007FF7F36DD5BB+3695675]
+	GetHandleVerifier [0x00007FF7F3736197+4059159]
+	GetHandleVerifier [0x00007FF7F372DF63+4025827]
+	GetHandleVerifier [0x00007FF7F33FF029+687785]
+	(No symbol) [0x00007FF7F32DB508]
+	(No symbol) [0x00007FF7F32D7564]
+	(No symbol) [0x00007FF7F32D76E9]
+	(No symbol) [0x00007FF7F32C8094]
+	BaseThreadInitThunk [0x00007FF853FB7344+20]
+	RtlUserThreadStart [0x00007FF854A026B1+33]
+
+2023-12-13 11:57:34,898 - ERROR: Error en la prueba de listar: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.71)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7F3364D02+56194]
+	(No symbol) [0x00007FF7F32D04B2]
+	(No symbol) [0x00007FF7F31776AA]
+	(No symbol) [0x00007FF7F3150AFD]
+	(No symbol) [0x00007FF7F31EC9AB]
+	(No symbol) [0x00007FF7F320201F]
+	(No symbol) [0x00007FF7F31E5C23]
+	(No symbol) [0x00007FF7F31B4A45]
+	(No symbol) [0x00007FF7F31B5AD4]
+	GetHandleVerifier [0x00007FF7F36DD5BB+3695675]
+	GetHandleVerifier [0x00007FF7F3736197+4059159]
+	GetHandleVerifier [0x00007FF7F372DF63+4025827]
+	GetHandleVerifier [0x00007FF7F33FF029+687785]
+	(No symbol) [0x00007FF7F32DB508]
+	(No symbol) [0x00007FF7F32D7564]
+	(No symbol) [0x00007FF7F32D76E9]
+	(No symbol) [0x00007FF7F32C8094]
+	BaseThreadInitThunk [0x00007FF853FB7344+20]
+	RtlUserThreadStart [0x00007FF854A026B1+33]
+
+2023-12-13 11:57:34,899 - INFO: La pagina completo la prueba de rendimiento con una carga del sitio en 1.3067729473114014 segundos.
+2023-12-13 12:10:37,122 - ERROR: La prueba de disponibilidad fallo: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=120.0.6099.71)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7F3364D02+56194]
+	(No symbol) [0x00007FF7F32D04B2]
+	(No symbol) [0x00007FF7F31776AA]
+	(No symbol) [0x00007FF7F316FB39]
+	(No symbol) [0x00007FF7F31625DD]
+	(No symbol) [0x00007FF7F31616FD]
+	(No symbol) [0x00007FF7F3160746]
+	(No symbol) [0x00007FF7F31606EB]
+	(No symbol) [0x00007FF7F315EE3D]
+	(No symbol) [0x00007FF7F315F603]
+	(No symbol) [0x00007FF7F317A0FD]
+	(No symbol) [0x00007FF7F3202C91]
+	(No symbol) [0x00007FF7F31E5E7A]
+	(No symbol) [0x00007FF7F3202786]
+	(No symbol) [0x00007FF7F31E5C23]
+	(No symbol) [0x00007FF7F31B4A45]
+	(No symbol) [0x00007FF7F31B5AD4]
+	GetHandleVerifier [0x00007FF7F36DD5BB+3695675]
+	GetHandleVerifier [0x00007FF7F3736197+4059159]
+	GetHandleVerifier [0x00007FF7F372DF63+4025827]
+	GetHandleVerifier [0x00007FF7F33FF029+687785]
+	(No symbol) [0x00007FF7F32DB508]
+	(No symbol) [0x00007FF7F32D7564]
+	(No symbol) [0x00007FF7F32D76E9]
+	(No symbol) [0x00007FF7F32C8094]
+	BaseThreadInitThunk [0x00007FF853FB7344+20]
+	RtlUserThreadStart [0x00007FF854A026B1+33]
+
+2023-12-13 12:14:52,608 - ERROR: La prueba de disponibilidad fallo: Los servicios no están disponibles
+2023-12-13 12:16:56,080 - ERROR: La prueba de disponibilidad fallo: Los servicios no estan disponibles
+2023-12-13 12:16:58,274 - ERROR: Los servicios no estan disponibles. Deteniendo las pruebas.
+2023-12-13 12:16:58,274 - ERROR: ------------------------------------------------------------------------------------
+2023-12-13 12:25:15,173 - ERROR: La prueba de disponibilidad fallo: Los servicios no estan disponibles
+2023-12-13 12:25:17,347 - ERROR: Los servicios no estan disponibles. Deteniendo las pruebas.
+2023-12-13 12:25:17,347 - ERROR: ------------------------------------------------------------------------------------
+2023-12-13 12:25:57,338 - ERROR: La prueba de disponibilidad fallo: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=120.0.6099.71)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7F3364D02+56194]
+	(No symbol) [0x00007FF7F32D04B2]
+	(No symbol) [0x00007FF7F31776AA]
+	(No symbol) [0x00007FF7F316FB39]
+	(No symbol) [0x00007FF7F31625DD]
+	(No symbol) [0x00007FF7F31616FD]
+	(No symbol) [0x00007FF7F3160746]
+	(No symbol) [0x00007FF7F31606EB]
+	(No symbol) [0x00007FF7F315EE3D]
+	(No symbol) [0x00007FF7F315F603]
+	(No symbol) [0x00007FF7F317A0FD]
+	(No symbol) [0x00007FF7F3202C91]
+	(No symbol) [0x00007FF7F31E5E7A]
+	(No symbol) [0x00007FF7F3202786]
+	(No symbol) [0x00007FF7F31E5C23]
+	(No symbol) [0x00007FF7F31B4A45]
+	(No symbol) [0x00007FF7F31B5AD4]
+	GetHandleVerifier [0x00007FF7F36DD5BB+3695675]
+	GetHandleVerifier [0x00007FF7F3736197+4059159]
+	GetHandleVerifier [0x00007FF7F372DF63+4025827]
+	GetHandleVerifier [0x00007FF7F33FF029+687785]
+	(No symbol) [0x00007FF7F32DB508]
+	(No symbol) [0x00007FF7F32D7564]
+	(No symbol) [0x00007FF7F32D76E9]
+	(No symbol) [0x00007FF7F32C8094]
+	BaseThreadInitThunk [0x00007FF853FB7344+20]
+	RtlUserThreadStart [0x00007FF854A026B1+33]
+
+2023-12-13 12:26:03,607 - ERROR: Los servicios no estan disponibles. Deteniendo las pruebas.
+2023-12-13 12:26:03,607 - ERROR: ------------------------------------------------------------------------------------
+2023-12-13 12:27:43,167 - ERROR: La prueba de disponibilidad fallo: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=120.0.6099.71)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7F3364D02+56194]
+	(No symbol) [0x00007FF7F32D04B2]
+	(No symbol) [0x00007FF7F31776AA]
+	(No symbol) [0x00007FF7F316FB39]
+	(No symbol) [0x00007FF7F31625DD]
+	(No symbol) [0x00007FF7F31616FD]
+	(No symbol) [0x00007FF7F3160746]
+	(No symbol) [0x00007FF7F31606EB]
+	(No symbol) [0x00007FF7F315EE3D]
+	(No symbol) [0x00007FF7F315F603]
+	(No symbol) [0x00007FF7F317A0FD]
+	(No symbol) [0x00007FF7F3202C91]
+	(No symbol) [0x00007FF7F31E5E7A]
+	(No symbol) [0x00007FF7F3202786]
+	(No symbol) [0x00007FF7F31E5C23]
+	(No symbol) [0x00007FF7F31B4A45]
+	(No symbol) [0x00007FF7F31B5AD4]
+	GetHandleVerifier [0x00007FF7F36DD5BB+3695675]
+	GetHandleVerifier [0x00007FF7F3736197+4059159]
+	GetHandleVerifier [0x00007FF7F372DF63+4025827]
+	GetHandleVerifier [0x00007FF7F33FF029+687785]
+	(No symbol) [0x00007FF7F32DB508]
+	(No symbol) [0x00007FF7F32D7564]
+	(No symbol) [0x00007FF7F32D76E9]
+	(No symbol) [0x00007FF7F32C8094]
+	BaseThreadInitThunk [0x00007FF853FB7344+20]
+	RtlUserThreadStart [0x00007FF854A026B1+33]
+
+2023-12-13 12:27:49,414 - ERROR: Los servicios no estan disponibles. Deteniendo las pruebas.
+2023-12-13 12:27:49,414 - ERROR: ------------------------------------------------------------------------------------
+2023-12-13 12:33:41,250 - INFO: La pagina completo la prueba de rendimiento con una carga del sitio en 3.4087510108947754 segundos.
+2023-12-13 12:33:52,122 - INFO: La pagina completo la prueba de rendimiento con una carga del sitio en 1.1342098712921143 segundos.
+2023-12-13 12:34:02,886 - INFO: La pagina completo la prueba de rendimiento con una carga del sitio en 1.1557364463806152 segundos.
+2023-12-13 12:34:13,685 - INFO: La pagina completo la prueba de rendimiento con una carga del sitio en 1.2014496326446533 segundos.
+2023-12-13 12:34:24,415 - INFO: La pagina completo la prueba de rendimiento con una carga del sitio en 1.1548371315002441 segundos.

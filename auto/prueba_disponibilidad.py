@@ -4,6 +4,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import logging
 import time
+import requests
+from requests.exceptions import RequestException
 
 # Configuración del logger
 logging.basicConfig(filename='resultados_disponibilidad_log.txt', level=logging.INFO,
@@ -12,10 +14,17 @@ logging.basicConfig(filename='resultados_disponibilidad_log.txt', level=logging.
 
 def run_test():
     driver = webdriver.Chrome()
+    servicios_disponibles = True
     
     try:
          # Inicio del contador
         start_time = time.time()
+        
+        servicios_disponibles = revisarServicios(driver)
+        
+        if (servicios_disponibles == False):
+            logging.error(f'La prueba de disponibilidad fallo: Los servicios no estan disponibles')
+            return False
         
         # Abrir la página web
         driver.get('http://localhost:5173/')
@@ -31,12 +40,51 @@ def run_test():
     
     except Exception as e:
         print("La prueba de disponibilidad falló:", str(e))
-        logging.error(f'La prueba de disponibilidad falló: {e}')
+        logging.error(f'La prueba de disponibilidad fallo: {e}')
+        servicios_disponibles = False
         
     finally:
         # Cerrar el navegador
         driver.quit()
+        return servicios_disponibles
         
+        
+def revisarServicios(driver):
+    servicios_funcionando = True
+    
+    try:
+        ## SERVIDOR
+        response = requests.get('http://localhost:3001/proveedores')
+        
+        if response.status_code == 200:
+            print("El servicio http://localhost:3001 está disponible")
+            servicios_funcionando = True
+        else:
+            print("El servicio http://localhost:3001 no está disponible")
+            servicios_funcionando = False
+        
+        
+        ## CLIENTE
+        driver.get('http://localhost:5173/')
+        
+        # Esperar que el elemento esté presente
+        login_header = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.ID, 'titleIniciarSesion'))
+        )
+        
+        # Verificar si el elemento está presente
+        if login_header:
+            servicios_funcionando = True
+            
+        else:
+            servicios_funcionando = False
+            
+        return servicios_funcionando
+        
+    except requests.RequestException as e:
+        print(f"Se produjo un error al conectarse a la API: {str(e)}")
+        return False
+
 
 def test_elementos_presentes(driver):
     try:
@@ -97,7 +145,13 @@ def test_iniciar_sesion(driver):
 for i in range(5):
     print("")
     print(f'------------ PRUEBA NÚMERO {i+1}---------------------')
-    run_test()
+    servicios_ok = run_test()
+    
+    if not servicios_ok:
+        print("Los servicios no están disponibles. Deteniendo las pruebas.")
+        logging.error('Los servicios no estan disponibles. Deteniendo las pruebas.')
+        logging.error('------------------------------------------------------------------------------------')
+        break
     
     if i < 4:
         time.sleep(2)
