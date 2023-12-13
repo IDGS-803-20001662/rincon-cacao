@@ -11,8 +11,8 @@ app.use(express.json());
 const db = mysql.createConnection({
     hos: "localhost",
     user: "root",
-    password: "",
-    //password: "CITLALLI123",
+    //password: "",
+    password: "CITLALLI123",
     database: "rincon_cacao"
 });
 
@@ -39,7 +39,11 @@ app.post("/usuarios/create", (req, res) => {
         }
         else
         {
-            res.send("¡Usuario registrado con éxito!");
+            res.send({
+                ok: true,
+                message: "¡Usuario registrado con éxito!",
+                id: result.insertId,
+              });
         }
     });
 });
@@ -47,7 +51,7 @@ app.post("/usuarios/create", (req, res) => {
 // LISTAR USUARIOS
 app.get("/usuarios", (req, res) => {
 
-    db.query('SELECT * FROM usuario',
+    db.query('SELECT * FROM usuario WHERE estatus = 1',
     (err, result) => {
         if (err)
         {
@@ -105,6 +109,19 @@ app.put("/usuarios/delete", (req, res) => {
         }
     });
 });
+
+// ELIMINAR USUARIOS FISICAMENTE
+app.delete("/usuarios/eliminate", (req, res) => {
+    const id = req.body.id;
+  
+    db.query("DELETE FROM usuario WHERE id = ?", [id], (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send("¡Usuario eliminado fisicamente con éxito!");
+      }
+    });
+  });
 
 // BUSCAR USUARIO POR ID
 app.get("/usuario/:id", (req, res) => {
@@ -194,7 +211,11 @@ app.post("/proveedores/create", (req, res) => {
         }
         else
         {
-            res.send("¡Proveedor registrado con éxito!");
+            res.send({
+                ok: true,
+                message: "¡Proveedor registrado con éxito!",
+                id: result.insertId,
+              });
         }
     });
 });
@@ -202,7 +223,7 @@ app.post("/proveedores/create", (req, res) => {
 // LISTAR PROVEEDORES
 app.get("/proveedores", (req, res) => {
 
-    db.query('SELECT * FROM proveedor',
+    db.query('SELECT * FROM proveedor WHERE estatus = 1',
     (err, result) => {
         if (err)
         {
@@ -258,6 +279,19 @@ app.put("/proveedores/delete", (req, res) => {
         }
     });
 });
+
+// ELIMINAR PROVEEDORES FISICAMENTE
+app.delete("/proveedores/eliminate", (req, res) => {
+    const id = req.body.id;
+  
+    db.query("DELETE FROM proveedor WHERE id = ?", [id], (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send("¡Proveedor eliminado fisicamente con éxito!");
+      }
+    });
+  });
 
 // BUSCAR PROVEEDOR POR ID
 app.get("/proveedor/:id", (req, res) => {
@@ -348,7 +382,11 @@ app.post("/materias/create", (req, res) => {
         }
         else
         {
-            res.send("¡Materia prima registrada con éxito!");
+            res.send({
+                ok: true,
+                message: "¡Materia prima registrada con éxito!",
+                id: result.insertId,
+                });
         }
     });
 });
@@ -356,7 +394,7 @@ app.post("/materias/create", (req, res) => {
 // LISTAR MATERIAS PRIMAS
 app.get("/materias", (req, res) => {
 
-    db.query('SELECT * FROM materia_prima',
+    db.query('SELECT * FROM materia_prima WHERE estatus = 1',
     (err, result) => {
         if (err)
         {
@@ -412,6 +450,19 @@ app.put("/materias/delete", (req, res) => {
         }
     });
 });
+
+// ELIMINAR MATERIAS FISICAMENTE
+app.delete("/materias/eliminate", (req, res) => {
+    const id = req.body.id;
+  
+    db.query("DELETE FROM materia_prima WHERE id = ?", [id], (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send("¡Materia prima eliminada fisicamente con éxito!");
+      }
+    });
+  });
 
 // BUSCAR MATERIAS POR ID
 app.get("/materia/:id", (req, res) => {
@@ -487,7 +538,7 @@ app.get("/materias/proveedor/:id", (req, res) => {
         if (err)
         {
             console.log(err);
-            req.status(500).send("Error al buscar la materia prima")
+            req.status(500).send("Error al buscar las materias primas")
         }
         else
         {
@@ -497,7 +548,7 @@ app.get("/materias/proveedor/:id", (req, res) => {
             }
             else
             {
-                res.status(404).send("Materias primas no encontrada")
+                res.status(404).send("Materias primas no encontradas")
             }
         }
     });
@@ -585,6 +636,19 @@ app.put("/compras/delete", (req, res) => {
         }
     });
 });
+
+// ELIMINAR COMPRAS FISICAMENTE
+app.delete("/compras/eliminate", (req, res) => {
+    const id = req.body.id;
+  
+    db.query("DELETE FROM compra WHERE id = ?", [id], (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send("¡Compra eliminada fisicamente con éxito!");
+      }
+    });
+  });
 
 // BUSCAR COMPRAS POR ID
 app.get("/compra/:id", (req, res) => {
