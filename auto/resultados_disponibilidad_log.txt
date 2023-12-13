@@ -1,0 +1,6 @@
+2023-12-13 07:57:52,831 - INFO: La pagina completo la prueba de disponibilidad con una carga del sitio en 0.5179831981658936 segundos.
+2023-12-13 07:59:08,363 - INFO: La pagina completo la prueba de disponibilidad con una carga del sitio en 0.4593236446380615 segundos.
+2023-12-13 07:59:18,583 - INFO: La pagina completo la prueba de disponibilidad con una carga del sitio en 0.45377492904663086 segundos.
+2023-12-13 07:59:28,735 - INFO: La pagina completo la prueba de disponibilidad con una carga del sitio en 0.4413340091705322 segundos.
+2023-12-13 07:59:38,945 - INFO: La pagina completo la prueba de disponibilidad con una carga del sitio en 0.44715404510498047 segundos.
+2023-12-13 07:59:49,061 - INFO: La pagina completo la prueba de disponibilidad con una carga del sitio en 0.4081394672393799 segundos.

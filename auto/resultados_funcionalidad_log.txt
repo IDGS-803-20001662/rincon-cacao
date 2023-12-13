@@ -1,0 +1,4 @@
+2023-12-13 11:01:23,857 - ERROR: Error en la prueba de inserción: 'WebDriver' object has no attribute 'find_element_by_id'
+2023-12-13 11:01:23,858 - INFO: La pagina completo la prueba de funcionalidad con una tiempo de 4.276520729064941 segundos.
+2023-12-13 11:03:46,710 - INFO: La pagina completo la prueba de funcionalidad con una tiempo de 4.4644293785095215 segundos.
+2023-12-13 11:04:55,549 - INFO: La pagina completo la prueba de funcionalidad con una tiempo de 4.3284618854522705 segundos.

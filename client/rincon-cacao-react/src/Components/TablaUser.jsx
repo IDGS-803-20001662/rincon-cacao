@@ -5,26 +5,35 @@ import { FaTrashCan } from "react-icons/fa6";
 
 const TablaUser = ({data,handleModalEdit,searchTerm,handleDelete}) => {
     const [filteredData, setFilteredData] = useState([]);
+    const [lastId, setLastId] = useState(0);
 
     useEffect(() => {
         const obtenerData = async () => {
+            let highestId = 0;
+
             if (searchTerm.trim() !== '') {
-            return data.filter(
+            const filtered = data.filter(
                 (usuario) =>
                 usuario.nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
                 usuario.apellido_paterno.toLowerCase().includes(searchTerm.toLowerCase()) ||
                 usuario.apellido_materno.toLowerCase().includes(searchTerm.toLowerCase()) ||
                 usuario.email.toLowerCase().includes(searchTerm.toLowerCase())
             );
+            setFilteredData(filtered);
+            highestId = Math.max(...filtered.map((usuario) => usuario.id), 0);
+
             } else {
-            return data;
+                setFilteredData(data);
+                highestId = Math.max(...data.map((usuario) => usuario.id), 0);
             }
+            setLastId(highestId);
         };
-        obtenerData().then((filtered) => setFilteredData(filtered));
+        obtenerData();
         }, [data, searchTerm]);
   
         return(
         <div className="table table-responsive" id='tUsuario'>
+            <input type="text" className="form-control" id="txtLastID" name="id" value={lastId} readOnly hidden />
             <table className="table table-striped table-bordered">
                 <thead className="thead-dark" id='theadUsuario'>
                     <tr>
